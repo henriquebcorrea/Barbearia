@@ -3,6 +3,8 @@ package com.barbearia.agendamento.service;
 import org.springframework.stereotype.Service;
 import com.barbearia.agendamento.model.Cliente;
 import com.barbearia.agendamento.repository.ClienteRepository;
+
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -20,5 +22,9 @@ public class ClienteService {
 
     public Optional<Cliente> buscarPorEmail(String email) {
         return Optional.ofNullable(repository.findByEmail(email));
+    }
+
+    public List<Cliente> listarTodos() {
+        return repository.findAll();
     }
 }
